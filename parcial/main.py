@@ -13,7 +13,8 @@ while True:
         print("F. BUSQUEDA POR DNI")
         print("G. CALCULAR PROMEDIO")
         print("H. CALCULAR DONANTES")
-        print("I. SALIR")
+        print("I. LISTAR POR GRUPO SANGUINEO")
+        print("J. SALIR")
         
         opcion = input("Seleccione una opción: ").upper()
         
@@ -60,6 +61,13 @@ while True:
                 else:
                     print("Debe ingresar datos")
             case 'I':
+                if flag_datos_ingresados == True:
+                    lista_por_grupos = mostrar_por_grupo_sanguineo(lista_pacientes)
+                    for i in range(len(lista_por_grupos)):
+                        print(lista_por_grupos[i])
+                else:
+                    print("Debe ingresar datos")
+            case 'J':
                 print("Saliendo...")
                 break
             case _:
