@@ -294,3 +294,95 @@ def calcular_donantes(lista:list):  # D.(A/B/AB/0).(P/N)
     print(f'| {d_a_p}  | {d_a_p}  | {d_b_p}  | {d_b_n}  | {d_ab_p}   | {d_ab_n}   | {d_c_p}  | {d_c_n}  |')
     print('*******************************************')
     
+#PARCIAL 7/6 
+#Mostrar grupo sanguineo
+def mostrar_por_grupo_sanguineo(lista_pacientes:list):
+    c_a_p = 0 #Contador A+
+    c_a_n = 0 #Contador A-
+    c_b_p = 0 #Contador B+
+    c_b_n = 0 #Contador B-
+    c_ab_p = 0 #Contador AB+
+    c_ab_n = 0 #Contador AB-
+    c_c_p = 0 #Contador 0+
+    c_c_n = 0 #Contador 0-
+    mensaje_ap = 'A+: '
+    mensaje_an = 'A-: ' 
+    mensaje_bp = 'B+: ' 
+    mensaje_bn = 'B-: ' 
+    mensaje_abp = 'AB+: ' 
+    mensaje_abn = 'AB-: ' 
+    mensaje_cp = '0+: ' 
+    mensaje_cn = '0-: '  
+    lista_por_grupos = []
+    for i in range(len(lista_pacientes)):
+            grupo = lista_pacientes[i]['grupo']
+            nombre = lista_pacientes[i]['nombre']
+            apellido = lista_pacientes[i]['apellido']
+            match grupo:
+                case 'A+':
+                    c_a_p += 1
+                    mensaje_ap += f'{nombre} {apellido},'
+                case 'A-':
+                    c_a_n += 1
+                    mensaje_an += f'{nombre} {apellido},'
+                case 'B+':
+                    c_b_p += 1
+                    mensaje_bp += f'{nombre} {apellido},'
+                case 'B-':
+                    c_b_n += 1
+                    mensaje_bn += f'{nombre} {apellido},'
+                case 'AB+':
+                    c_ab_p += 1
+                    mensaje_abp += f'{nombre} {apellido},'
+                case 'AB-':
+                    c_ab_n += 1
+                    mensaje_abn += f'{nombre} {apellido},'
+                case '0+':
+                    c_c_p += 1
+                    mensaje_cp += f'{nombre} {apellido},'
+                case '0-':  
+                    c_c_n += 1
+                    mensaje_cn += f'{nombre} {apellido},'
+                    
+    if c_a_p == 0:
+        pass
+    else:
+        mensaje_ap += f'\nTotal de pacientes con sangre A+: {c_a_p}'
+        lista_por_grupos.append(mensaje_ap)
+    if c_a_n == 0:
+        pass
+    else:
+        mensaje_an += f'\nTotal de pacientes con sangre A-: {c_a_n}'
+        lista_por_grupos.append(mensaje_an)
+    if c_b_p == 0:
+        pass
+    else:
+        mensaje_bp += f'\nTotal de pacientes con sangre B+: {c_b_p}'
+        lista_por_grupos.append(mensaje_bp)
+    if c_b_n == 0:
+        pass
+    else:
+        mensaje_bn += f'\nTotal de pacientes con sangre B-: {c_b_n}'
+        lista_por_grupos.append(mensaje_bn)
+    if c_ab_p == 0:
+        pass
+    else:
+        mensaje_abp += f'\nTotal de pacientes con sangre AB+: {c_ab_p}'
+        lista_por_grupos.append(mensaje_abp)
+    if c_ab_n == 0:
+        pass
+    else:
+        mensaje_abn += f'\nTotal de pacientes con sangre AB-: {c_ab_n}'
+        lista_por_grupos.append(mensaje_abn)
+    if c_c_p == 0:
+        pass
+    else:
+        mensaje_cp += f'\nTotal de pacientes con sangre 0+: {c_c_p}'
+        lista_por_grupos.append(mensaje_cp)
+    if c_c_n == 0:
+        pass
+    else:
+        mensaje_cn += f'\nTotal de pacientes con sangre 0-: {c_c_n}'
+        lista_por_grupos.append(mensaje_cn)
+    
+    return lista_por_grupos
